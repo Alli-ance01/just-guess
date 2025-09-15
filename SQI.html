@@ -1,0 +1,1397 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&display=swap");
+        @import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+        @import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap");
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            position: relative;
+        }
+
+        .main {
+            width: 100%;
+            /* background-color: aqua; */
+            height: 85vh;
+            position: relative;
+        }
+
+        video {
+            width: 100%;
+            height: 100%;
+            object-fit: fill;
+        }
+
+        .agrid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: auto;
+            width: 100%;
+        }
+
+        .big {
+            position: absolute;
+            font-family: "Archivo", sans-serif;
+            font-size: 56px;
+            font-weight: 700;
+            line-height: 56px;
+            /* color: black; */
+            display: flex;
+            flex-direction: column;
+            bottom: 15%;
+            align-items: end;
+            color: white;
+            right: 10%;
+            gap: 10px;
+        }
+
+        .sma {
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 23.8px;
+            font-family: "Raleway", sans-serif;
+        }
+
+        .now::after {
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            content: "\f105";
+            margin-left: 5px;
+            display: none;
+        }
+
+        .now:hover::after {
+            display: inline;
+        }
+
+        .now {
+            font-family: "Raleway", sans-serif;
+            color: white;
+            background-color: transparent;
+            width: 120px;
+            height: 40px;
+            /* border-color: white; */
+            border: 2px solid white;
+            /* border-bottom-color: white; */
+            border-radius: 3px;
+            margin-top: 3px;
+            cursor: pointer;
+        }
+
+        .app {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: #25d366;
+            border: none;
+            position: fixed;
+            bottom: 50px;
+            left: 40px;
+            cursor: pointer;
+            z-index: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .help {
+            position: fixed;
+            bottom: 65px;
+            left: 110px;
+            background-color: #f5f7f9;
+            color: black;
+            border: none;
+            border-radius: 7px;
+            height: 32px;
+            padding: 0 10px;
+            font-size: 12px;
+            font-weight: 500;
+            cursor: pointer;
+            z-index: 1;
+        }
+
+        .help::after {
+            content: " Chat with us";
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .containd {
+            width: 90%;
+            /* border: thin solid black; */
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: nowrap;
+            margin: 50px auto;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 20px;
+        }
+
+        .social-icons a {
+            color: rgb(51, 51, 51);
+        }
+
+        .footer {
+            width: 100%;
+            height: 35px;
+            background-color: #050044;
+            color: white;
+            font-size: 14px;
+            font-weight: 500;
+            padding-bottom: 2px;
+            /* font-family: ; */
+            font-family: "Poppins", sans-serif;
+            display: flex;
+            /* justify-content: space-between; */
+            padding-left: 100px;
+            align-items: end;
+            /* border: thin solid black; */
+        }
+
+        .totp {
+            position: sticky;
+            border-radius: 50%;
+            cursor: pointer;
+            width: 50px;
+            height: 50px;
+            background-color: #0065fd;
+            color: white;
+            /* visibility: hidden; */
+            border: none;
+            /* bottom: ; */
+            top: 450px;
+            left: 1150px;
+            /* right: ; */
+            transition: 10s ease-in-out;
+        }
+
+        .totp a {
+            color: white;
+            font-size: 20px;
+            text-decoration: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+
+        .bfhero {
+            width: 100%;
+            height: 1800px;
+            background-color: white;
+        }
+
+        .degree {
+            /* background-color: pink; */
+            height: 30%;
+            margin: 100px;
+            /* padding: 0px; */
+        }
+
+        .programs {
+            background-color: white;
+            height: 33%;
+            margin: 100px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            line-height: 28.8px;
+        }
+
+        .advantage {
+            /* background-color: brown; */
+            margin: 100px;
+            height: 37%;
+        }
+
+        .hero {
+            width: 100%;
+            height: 400px;
+            background-image: linear-gradient(180deg,
+                    rgba(30, 49, 117, 0.5) 0%,
+                    #000033 100%),
+                url(https://edu.sqi.ng/wp-content/uploads/2023/03/financial-technology-31c-1-scaled.jpg);
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .faq {
+            width: 100%;
+            height: 1000px;
+            /* background-color: purple; */
+        }
+
+        .news {
+            background-color: #f0f1ff;
+            height: 1000px;
+            width: 100%;
+        }
+
+        .round {
+            background-color: #f5f5f5;
+            height: 800px;
+            width: 100%;
+        }
+
+        .afhero {
+            background-image: linear-gradient(150deg,
+                    #06002d 26%,
+                    rgba(38, 46, 53, 0) 100%),
+                url(https://edu.sqi.ng/wp-content/uploads/2023/03/gradient-bg-03.jpg);
+            width: 100%;
+            z-index: 1;
+            height: 700px;
+        }
+
+        .innerg {
+            width: 80%;
+            height: 400px;
+            /* position: absolute; */
+            background-color: #ffffff;
+        }
+
+        .begin {
+            /* width: 100%;  */
+            /* height: 300px; */
+            /* border: thin solid black; */
+            /* margin-top: 15%; */
+            /* margin-bottom: 10%; */
+            /* position: relative; */
+            /* background-image: linear-gradient(to bottom, #0a0a3e, #1e1e5a); */
+            /* background-size: cover; */
+            /* background-position: center; */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            gap: 20px;
+            /* text-align: center; */
+            /* padding: 20px; */
+        }
+
+        .buttongs {
+            background-color: #00208a;
+            width: 250px;
+            height: 70px;
+            border-radius: 35px;
+            border: #0a0a3e;
+            color: white;
+            font-weight: bolder;
+        }
+
+        .buttongs:hover {
+            background-color: #0056b3;
+        }
+
+        .earn {
+            color: #030b5e;
+            font-size: 50px;
+            font-family: Archivo, sans-serif;
+        }
+
+        .ehnn {
+            display: flex;
+            padding-top: 15px;
+            padding-right: 10px;
+        }
+
+        .deg {
+            width: 45%;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            line-height: 28.8px;
+        }
+
+        .degtext {
+            color: rgb(15, 57, 59);
+            font-weight: 500;
+            font-size: 16px;
+            font-family: "DM Sans", sans-serif;
+            text-decoration: none solid rgb(15, 57, 59);
+        }
+
+        .degb {
+            width: 220px;
+            height: 55px;
+            background-color: #00208a;
+            color: white;
+            border: none;
+            border-radius: 40px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            padding: 16px 24px;
+        }
+
+        .acred {
+            font-size: 50px;
+            font-family: "Archivo", sans-serif;
+            font-weight: 500;
+        }
+
+        .pics {
+            display: flex;
+            /* gap: 20px; */
+            justify-content: space-between;
+        }
+
+        .picss {
+            width: 46%;
+            /* height: 450px; */
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .picss:nth-child(1) {
+            height: 450px;
+        }
+
+        .picss:nth-child(2) {
+            height: 470px;
+        }
+
+        .pich {
+            font-size: 20px;
+            color: #333333;
+            font-family: "Archivo", sans-serif;
+            font-weight: 700;
+            line-height: 32px;
+            padding: 20px;
+            text-align: left;
+        }
+
+        .picte {
+            color: #666666;
+            font-size: 16px;
+            font-family: "Archivo", sans-serif;
+            text-align: left;
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 32px;
+            padding: 0px 20px;
+        }
+
+        /* @media (max-width:768px) {
+           
+        } */
+
+      @media (max-width:768px) {
+
+        * {
+            /* border: thin solid black; */
+            /* width: 100%; */
+        }
+
+        body {
+            border: thin solid black;
+            width: 100%;
+        }
+            .big {
+                font-size: 40px;
+                line-height: 45px;
+                right: 5%;
+                bottom: 20%;
+            }
+
+            .sma {
+                font-size: 14px;
+            }
+
+            .now {
+                width: 100px;
+                height: 35px;
+                font-size: 14px;
+            }
+
+            .app {
+                width: 50px;
+                height: 50px;
+                bottom: 30px;
+                left: 20px;
+            }
+
+            .help {
+                bottom: 42px;
+                left: 80px;
+                font-size: 10px;
+                height: 28px;
+            }
+
+            .containd {
+                flex-wrap: wrap;
+                justify-content: flex-start;
+                gap: 30px;
+            }
+
+            .containd > div {
+                width: 48%;
+                margin-bottom: 20px;
+            }
+
+            .footer {
+                padding-left: 20px;
+                font-size: 12px;
+                text-align: center;
+                height: auto;
+                padding: 10px 20px;
+            }
+
+            .bfhero {
+                height: auto;
+            }
+
+            .degree, .programs, .advantage {
+                margin: 50px 20px;
+            }
+
+            .earn {
+                font-size: 36px;
+            }
+
+            .ehnn {
+                flex-direction: column;
+                padding-top: 20px;
+                padding-right: 0;
+            }
+
+            .deg {
+                width: 100%;
+                margin-bottom: 30px;
+            }
+
+            .ehnn img {
+                width: 100% !important;
+                padding-left: 0 !important;
+                height: auto !important;
+            }
+
+            .acred {
+                font-size: 36px;
+            }
+
+            .pics {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .picss {
+                width: 100%;
+            }
+
+            .adh {
+                font-size: 36px;
+            }
+
+            .agrid {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto;
+                /* gap: 20px; */
+            }
+
+            .hero {
+                height: 300px;
+            }
+
+            .begin h1 {
+                font-size: 36px !important;
+                text-align: center;
+                padding: 0 20px;
+            }
+
+            .buttong {
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .buttongs {
+                width: 200px;
+                height: 60px;
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width:426px) {
+          .main {
+            width: 100%;
+            background: url(./imgi_19_SQI-CLASS-SHOT.jpg), linear-gradient(red, orange, yellow); 
+            z-index: 2; 
+            background-size: fill; 
+            background-position: center;
+            height: 100vh;
+          }  
+          video {
+            display: none;
+          }
+          
+          .big {
+            position: absolute;
+            font-family: "Archivo", sans-serif;
+            font-size: 32px;
+            font-weight: 700;
+            line-height: 40px;
+            /* color: black; */
+            display: flex;
+            flex-direction: column;
+            bottom: 20%;
+            align-items: end;
+            color: white;
+            right: 10%;
+            left: 0%;
+            gap: 10px;
+            text-align: center;
+            padding: 0 20px;
+          }
+
+          .sma {
+            font-size: 13px;
+          }
+
+          .now {
+            width: 90px;
+            height: 32px;
+            font-size: 12px;
+          }
+
+          .app {
+            width: 45px;
+            height: 45px;
+            bottom: 20px;
+            left: 15px;
+          }
+
+          .help {
+            bottom: 32px;
+            left: 70px;
+            font-size: 9px;
+            height: 25px;
+            padding: 0 8px;
+          }
+
+          .containd {
+            flex-direction: column;
+            margin: 30px auto;
+            width: 95%;
+          }
+
+          .containd > div {
+            width: 100%;
+            margin-bottom: 30px;
+          }
+
+          .footer {
+            padding: 15px;
+            text-align: center;
+            font-size: 11px;
+          }
+
+          .degree, .programs, .advantage {
+            margin: 30px 15px;
+          }
+
+          .earn {
+            font-size: 28px;
+          }
+
+          .degb {
+            width: 180px;
+            height: 45px;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+
+          .acred {
+            font-size: 28px;
+          }
+
+          .pich {
+            font-size: 16px;
+            line-height: 24px;
+          }
+
+          .picte {
+            font-size: 14px;
+            line-height: 22px;
+          }
+
+          .adh {
+            font-size: 28px;
+          }
+
+          .agrid {
+            grid-template-columns: 1fr;
+            grid-template-rows: auto;
+            /* gap: 15px; */
+            /* background-color: #0056b3; */
+            /* display: flex; */
+            /* flex-direction: column; */
+          }
+
+          .agrid span .hea {
+            font-size: 18px;
+          }
+
+          .agrid span p {
+            font-size: 13px;
+          }
+
+          .hero {
+            height: 250px;
+          }
+
+          .begin h1 {
+            font-size: 24px !important;
+          }
+
+          .buttongs {
+            width: 170px;
+            height: 50px;
+            font-size: 12px;
+          }
+        }
+
+        @media (max-width:375px) {
+            .big {
+                font-size: 28px;
+                line-height: 35px;
+                bottom: 25%;
+            }
+
+            .sma {
+                font-size: 12px;
+            }
+
+            .now {
+                width: 85px;
+                height: 30px;
+                font-size: 11px;
+            }
+
+            .app {
+                width: 40px;
+                height: 40px;
+                bottom: 15px;
+                left: 10px;
+            }
+
+            .help {
+                bottom: 26px;
+                left: 60px;
+                font-size: 8px;
+                height: 22px;
+                padding: 0 6px;
+            }
+
+            .degree, .programs, .advantage {
+                margin: 25px 10px;
+            }
+
+            .earn {
+                font-size: 24px;
+            }
+
+            .degb {
+                width: 160px;
+                height: 40px;
+                font-size: 11px;
+            }
+
+            .acred {
+                font-size: 24px;
+            }
+
+            .pich {
+                font-size: 15px;
+                padding: 15px;
+            }
+
+            .picte {
+                font-size: 13px;
+                padding: 0 15px;
+            }
+
+            .adh {
+                font-size: 24px;
+            }
+
+            .addd {
+                font-size: 14px;
+                letter-spacing: 4px;
+            }
+
+            .agrid {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto;
+            }
+
+            .agrid span .hea {
+                font-size: 16px;
+            }
+
+            .agrid span p {
+                font-size: 12px;
+            }
+
+            .hero {
+                height: 200px;
+            }
+
+            .begin h1 {
+                font-size: 20px !important;
+            }
+
+            .buttongs {
+                width: 150px;
+                height: 45px;
+                font-size: 11px;
+            }
+
+            .footer {
+                font-size: 10px;
+                padding: 12px;
+            }
+        }
+
+        @media (max-width:320px) {
+            .big {
+                font-size: 24px;
+                line-height: 30px;
+                bottom: 30%;
+                padding: 0 15px;
+            }
+
+            .sma {
+                font-size: 11px;
+            }
+
+            .now {
+                width: 80px;
+                height: 28px;
+                font-size: 10px;
+            }
+
+            .app {
+                width: 35px;
+                height: 35px;
+                bottom: 10px;
+                left: 8px;
+            }
+
+            .help {
+                bottom: 20px;
+                left: 50px;
+                font-size: 7px;
+                height: 20px;
+                padding: 0 5px;
+            }
+
+            .containd {
+                margin: 20px auto;
+            }
+
+            .degree, .programs, .advantage {
+                margin: 20px 8px;
+            }
+
+            .earn {
+                font-size: 20px;
+            }
+
+            .degtext {
+                font-size: 14px;
+            }
+
+            .degb {
+                width: 140px;
+                height: 35px;
+                font-size: 10px;
+                padding: 12px 16px;
+            }
+
+            .acred {
+                font-size: 20px;
+            }
+
+            .pich {
+                font-size: 14px;
+                padding: 12px;
+                line-height: 20px;
+            }
+
+            .picte {
+                font-size: 12px;
+                padding: 0 12px;
+                line-height: 18px;
+            }
+
+            .adh {
+                font-size: 20px;
+                line-height: 30px;
+            }
+
+            .addd {
+                font-size: 12px;
+                letter-spacing: 2px;
+            }
+
+            
+
+           
+
+            .hero {
+                height: 180px;
+            }
+
+            .begin h1 {
+                font-size: 18px !important;
+                line-height: 24px !important;
+            }
+
+            .buttong {
+                gap: 10px;
+            }
+
+            .buttongs {
+                width: 130px;
+                height: 40px;
+                font-size: 10px;
+            }
+
+            .footer {
+                font-size: 9px;
+                padding: 10px;
+            }
+
+            .social-icons {
+                gap: 15px;
+            }
+
+            .social-icons a {
+                font-size: 14px;
+            }
+        }
+
+        .addd {
+            font-size: 16px;
+            font-family: "Archivo", sans-serif;
+            font-weight: 700;
+            color: #030b5e;
+            /* text-align: center; */
+            line-height: 28.8px;
+            /* width: 520px; */
+            letter-spacing: 8px;
+            padding: 0 0 10px;
+        }
+
+        .adh {
+            font-size: 50px;
+            font-family: "Archivo", sans-serif;
+            font-weight: 700;
+            /* color: #030b5e; */
+            line-height: 60px;
+            padding: 0 0 10px;
+            /* text-align: center; */
+            /* width: 520px; */
+        }
+
+        
+        .agrid span {
+            /* border: thin solid black; */
+            margin: 5px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            padding: 10px;
+        }
+        .agrid span .hea {
+            font-size: 20px;
+            font-family: "Archivo", sans-serif;
+            font-weight: 700;
+            line-height: 24px;
+        }
+        .agrid span p {
+            font-size: 14px;
+            font-weight: 500;
+            font-family: "poppins", sans-serif;
+            color: #666666;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wha">
+        <button class="app">
+            <img src="./whatsapp-icon-png-favpng-GZWespsL9NFyTvLUnRWKUQc8i-removebg-preview.png" alt="icon" width="40px"
+                style="color: white" />
+        </button>
+        <button class="help">Need Help?</button>
+    </div>
+    <div class="main" id="home">
+        <video src="./sqi-web-video-1.webm" autoplay muted loop></video>
+        <div class="big">
+            <span>The</span>
+            <span>National Innovation</span>
+            <span>Diploma Program</span>
+            <p class="sma">Real learning begins here.</p>
+            <button class="now">Apply Now!</button>
+        </div>
+    </div>
+
+    <div class="bfhero">
+        <div class="degree">
+            <h2 class="earn">Earn a Degree + Experience</h2>
+            <div class="ehnn">
+                <div class="deg">
+                    <span class="degtext">Earn your National Innovative Diploma (NID) in ICT and launch or
+                        advance your career with the in-demand skills to succeed in
+                        several high-growth industries. As a student in the program, you
+                        will achieve proficiency and real-life practical experience in
+                        your course of choice.</span>
+                    <span style="border: thin solid black"></span>
+                    <span class="degtext">The National Innovation Diploma (NID) offered at SQI College of
+                        ICT is an approved academic program of National Board for
+                        Technical Education (NBTE) an important organ under the Nigerian
+                        Federal Ministry of Education. The National Innovation Diploma
+                        programme provides access to Technical and Vocational education in
+                        Nigeria.</span>
+                    <button class="degb">Admission Requirements</button>
+                </div>
+                <img src="./sqi-graduate.jpg" alt="pic" width="55%" height="35%" style="padding-left: 60px"
+                    title="sqi graduate" />
+            </div>
+        </div>
+        <div class="programs">
+            <h2 class="acred">Our Accredited Programs</h2>
+            <span class="degtext">Our courses are broad and deep – giving you the skills to create future technology.</span>
+            <span class="degtext">When students complete their academic studies, they are awarded the National Innovation Diploma which is equivalent to and <br> conforms with the standard National Diploma certificates awarded in polytechnics and mono-technics in Nigeria.</span>
+
+            <div class="pics">
+                <div class="picss">
+                    <img src="./software-developer.jpg" width="88%" height="50%" alt="img" style="padding-top: 20px;">
+                    <span class="pich">DEPARTMENT OF COMPUTER AND SOFTWARE ENGINEERING.</span>
+                    <span class="picte">Web Application Development Option, Native Application Development Option, Cyber Security Option, Data Science/Analysis Option, Artificial Intelligence</span>
+                </div>
+                <div class="picss">
+                    <img src="./hardware-engineer.jpg" alt="img2" width="88%" height="50%" style="padding-top: 20px;">
+                    <span class="pich">DEPARTMENT OF COMPUTER AND HARDWARE ENGINEERING</span>
+                    <span class="picte">Robotics Engineering Option, Computer Hardware Engineering Option, Network Security Systems Option, Cloud/Server Administration Option, Internet of Things Option</span>
+                </div>
+            </div>
+        </div>
+        <div class="advantage">
+            <span class="addd">WHY STUDY AT SQI</span>
+            <h2 class="adh">SQI Advantage</h2>
+            <div class="agrid">
+                <span>
+                    <div class="hea">Facilities and Lecturers</div>
+                    <p>World class facilities, seasoned lecturers and certified instructors</p>
+                </span>
+                <span>
+                    <div class="hea">Acquire a tech skill</div>
+                    <p>Acquire in-demand professional skills and certificate alongside your Diploma program</p>
+                </span>
+                <span>
+                    <div class="hea">Job Opportunity</div>
+                    <p>78.5% of our students found secure employment within three months of graduation. Students leave from learning to getting job roles</p>
+                </span>
+                <span>
+                    <div class="hea">Conducive learning space</div>
+                    <p>Enjoy uninterrupted learning and practical experience at our campuses.</p>
+                </span>
+                <span>
+                    <div class="hea">Learn the smarter and faster way</div>
+                    <p>Build real world projects that greatly enhance your portfolio and gives you a competitive edge.  </p>
+                </span>
+                <span>
+                    <div class="hea">Purely practical</div>
+                    <p>This course is practical, Hands-on learning. Practice and apply knowledge faster with real-world projects you can show off.</p>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="hero">
+        <img src="./imgi_18_financial-technology-31c-1-scaled-removebg-preview.png" alt="bg" width="100%"
+            style="position: absolute" />
+        <div class="begin">
+            <div>
+                <h1 style="color: white; font-size: 50px">
+                    Begin your application process
+                </h1>
+            </div>
+            <div class="buttong">
+                <button class="buttongs">Start Application</button>
+                <button class="buttongs">Admission Requirements</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- <div class="faq"></div>
+
+    <div class="afhero"></div>
+
+    <div class="innerg"></div>
+
+    <div class="round"></div>
+
+    <div class="news"></div> -->
+
+    <div class="containd">
+        <div>
+            <p style="
+            color: rgb(0, 32, 138);
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 19px;
+            font-weight: 600;
+          ">
+                Hello, we're <br />SQI College of <br />ICT
+            </p>
+            <div style="
+            color: rgb(51, 51, 51);
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 15px;
+            font-weight: 500;
+            line-height: 19.5px;
+          ">
+                We provide and lead <br />
+                others in quality ICT <br />
+                education.
+            </div>
+            <br />
+            <div class="social-icons">
+                <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+                <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://x.com" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://youtube.com" target="_blank"><i class="fab fa-youtube"></i></a>
+            </div>
+            <p style="
+            color: rgb(51, 51, 51);
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 15px;
+            font-weight: 500;
+          ">
+                Send us a mail
+            </p>
+            <a href="mailto:enquiry@edu.sqi.ng" style="
+            color: rgb(46, 163, 242);
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            text-decoration: none;
+          ">enquiry@edu.sqi.ng</a>
+        </div>
+        <div>
+            <p style="
+            color: rgb(51, 51, 51);
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+          ">
+                Quick Links
+            </p>
+            <br />
+            <div style="
+            color: rgb(102, 102, 102);
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 22.4px;
+            cursor: pointer;
+          ">
+                Application Portal
+                <br /><br />
+                Student Portal
+                <br /><br />
+                Professional Courses
+                <br /><br />
+                NID Courses
+                <br /><br />
+                Campus Info
+                <br /><br />
+                Accomodation
+                <br /><br />
+                SQI Scholarship
+                <br /><br />
+                Donate
+            </div>
+        </div>
+        <div>
+            <p style="
+            color: rgb(51, 51, 51);
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+          ">
+                Ogbomosho
+            </p>
+            <br />
+            <div style="
+            color: rgb(102, 102, 102);
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 22.4px;
+          ">
+                Old Ilorin Road,<br />
+                Opposite Yoaco Filling Station,<br />
+                Yoaco, Ogbomoso. <br /><br />
+                <div style="
+              color: rgb(102, 102, 102);
+              font-size: 14px;
+              font-weight: 700;
+              font-family: Arial, Helvetica, sans-serif;
+            ">
+                    0906 281 9991, 0906 281 <br />9993
+                </div>
+                <br />
+                <a href="https://maps.app.goo.gl/FCw3kcTHvLwj177X7?g_st=ic" style="
+              color: rgb(46, 163, 242);
+              font-size: 14px;
+              font-weight: 500;
+              text-decoration: none;
+            ">Locate on the map</a>
+            </div>
+        </div>
+        <div>
+            <p style="
+            color: rgb(51, 51, 51);
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+          ">
+                Ibadan
+            </p>
+            <br />
+            <div style="
+            color: rgb(102, 102, 102);
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 22.4px;
+          ">
+                First Floor, H25 <br />Heritage Mall,<br />
+                Opposite Central Bank <br />of Nigeria,<br />
+                Dugbe, Ibadan.
+            </div>
+            <br />
+            <div style="
+            color: rgb(102, 102, 102);
+            font-size: 14px;
+            font-weight: 700;
+            font-family: Arial, Helvetica, sans-serif;
+          ">
+                0906 281 9994 <br /><br />
+            </div>
+            <a href="https://maps.app.goo.gl/G5YdobEuph72HGHY8?g_st=ic" style="
+            color: rgb(46, 163, 242);
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            text-decoration: none;
+          ">Locate on the map</a><br /><br /><br />
+            <div style="
+            color: rgb(102, 102, 102);
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 22.4px;
+          ">
+                Christianah Oyinade <br />
+                Ajoke House, beside <br />
+                First Bank, Arisekola <br />
+                Central Mosque, <br />
+                Opposite Jaiz bank, Idi <br />
+                Ape, Iwo road, Ibadan.
+            </div>
+            <br />
+            <div style="
+            color: rgb(102, 102, 102);
+            font-size: 14px;
+            font-weight: 700;
+            font-family: Arial, Helvetica, sans-serif;
+          ">
+                0906 281 9995
+            </div>
+            <br />
+            <a href="https://maps.app.goo.gl/3aAW1Pm1TwgpW8v19?g_st=ic" style="
+            color: rgb(46, 163, 242);
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            text-decoration: none;
+          ">Locate on the map</a><br /><br /><br />
+            <div style="
+            color: rgb(102, 102, 102);
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 22.4px;
+          ">
+                Haier Thermocool <br />
+                Building, opposite SAO <br />
+                filling station, <br />
+                Challenge, Ibadan, <br />
+                Oyo State.
+            </div>
+            <br />
+            <div style="
+            color: rgb(102, 102, 102);
+            font-size: 14px;
+            font-weight: 700;
+            font-family: Arial, Helvetica, sans-serif;
+          ">
+                0906 281 9992 <br /><br />
+            </div>
+            <a href="https://maps.app.goo.gl/eNRUK1k9XNKLhLcb6" style="
+            color: rgb(46, 163, 242);
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            text-decoration: none;
+          ">Locate on the map</a>
+        </div>
+        <div>
+            <p style="
+            color: rgb(51, 51, 51);
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+          ">
+                Abeokuta
+            </p>
+            <br />
+            <div style="
+            color: rgb(102, 102, 102);
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 22.4px;
+          ">
+                First floor, OPIC Tower <br />
+                building, Okeilewo, <br />
+                Abeokuta.
+            </div>
+            <div style="
+            color: rgb(102, 102, 102);
+            font-size: 14px;
+            font-weight: 700;
+            font-family: Arial, Helvetica, sans-serif;
+          ">
+                0906 281 9996 <br /><br />
+            </div>
+            <a href="https://maps.app.goo.gl/rVn3ZaaU1cxYdHj58?g_st=ic" style="
+            color: rgb(46, 163, 242);
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            text-decoration: none;
+          ">Locate on the map</a>
+            <br /><br /><br />
+            <p style="
+            color: rgb(51, 51, 51);
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+          ">
+                Osogbo
+            </p>
+            <br />
+            <div style="
+            color: rgb(102, 102, 102);
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 22.4px;
+          ">
+                Opposite Jaiz bank, <br />
+                Ogo-Oluwa, Osogbo
+            </div>
+            <div style="
+            color: rgb(102, 102, 102);
+            font-size: 14px;
+            font-weight: 700;
+            font-family: Arial, Helvetica, sans-serif;
+          ">
+                0906 281 9997 <br /><br />
+            </div>
+            <a href="https://maps.app.goo.gl/AMnNk6R3U9ZFxVnp7" style="
+            color: rgb(46, 163, 242);
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            text-decoration: none;
+          ">Locate on the map</a>
+            <br /><br /><br />
+            <p style="
+            color: rgb(51, 51, 51);
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+          ">
+                Abuja
+            </p>
+            <br />
+            <div style="
+            color: rgb(102, 102, 102);
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 22.4px;
+          ">
+                Suite Banking Hall SF, <br />
+                Febson Mall, <br />
+                Wuse Zone 4, Abuja
+            </div>
+            <div style="
+            color: rgb(102, 102, 102);
+            font-size: 14px;
+            font-weight: 700;
+            font-family: Arial, Helvetica, sans-serif;
+          ">
+                0906 282 0000 <br /><br />
+            </div>
+            <a href="https://maps.app.goo.gl/f7kcr8Js71KmsFy58" style="
+            color: rgb(46, 163, 242);
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            text-decoration: none;
+          ">Locate on the map</a>
+        </div>
+    </div>
+
+    <!-- <button class="totp">Ho</button> -->
+    <div class="footer">
+        Copyright © 2025 | SQI ICT Consultants. All Rights Reserved.
+    </div>
+</body>
+
+</html>
